@@ -1,0 +1,285 @@
+#root {
+  min-height: 100vh;
+}
+
+.page-shell {
+  min-height: 100vh;
+  padding: 0 7.1%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 9% 67%, rgba(251, 230, 209, 0.53), transparent 25%),
+    radial-gradient(ellipse at 76% 18%, rgba(223, 231, 211, 0.38), transparent 29%),
+    #f8f8f4;
+}
+
+.topbar {
+  height: 82px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8e1;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #242d26;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.8px;
+}
+
+.brand-mark {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  color: #f9f8f1;
+  background: #394b3c;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1;
+}
+
+.topbar-note {
+  margin-left: 52px;
+  color: #898d82;
+  font-size: 12px;
+  letter-spacing: 0.015em;
+}
+
+.topbar-link {
+  color: #455347;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.topbar-link span {
+  margin-left: 4px;
+  color: #bd8058;
+}
+
+.showcase {
+  width: min(1054px, 100%);
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
+  gap: clamp(42px, 8vw, 125px);
+  align-items: center;
+  margin: 0 auto;
+  padding: 54px 0 74px;
+}
+
+.intro {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.eyebrow,
+.demo-label,
+.page-footer,
+.chat-powered {
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.13em;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #777e72;
+}
+
+.eyebrow-dot,
+.demo-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c88960;
+}
+
+.intro h1 {
+  margin: 25px 0 19px;
+  color: #28332a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(42px, 5.3vw, 66px);
+  font-weight: 400;
+  letter-spacing: -0.065em;
+  line-height: 1.07;
+}
+
+.intro h1 span {
+  color: #a57150;
+  font-style: italic;
+}
+
+.intro > p {
+  max-width: 370px;
+  color: #73796f;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.intro-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 31px;
+  color: #697267;
+  font-size: 11px;
+}
+
+.intro-details > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.detail-check {
+  display: grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8ece3;
+  color: #62735e;
+  font-size: 10px;
+}
+
+.sparkle {
+  position: absolute;
+  color: #d7ad83;
+  font-size: 21px;
+}
+
+.sparkle-one {
+  top: 60px;
+  right: 3%;
+}
+
+.sparkle-two {
+  right: 16%;
+  bottom: -28px;
+  color: #8d9c7d;
+  font-size: 15px;
+}
+
+.demo-column {
+  width: 100%;
+}
+
+.demo-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 3px 13px;
+  color: #808579;
+  font-size: 8px;
+}
+
+.demo-label-dot {
+  width: 5px;
+  height: 5px;
+  background: #829274;
+}
+
+.demo-label-line {
+  height: 1px;
+  flex: 1;
+  background: #e6e5dc;
+}
+
+.demo-caption {
+  margin: 14px 0 0;
+  color: #92958b;
+  text-align: center;
+  font-size: 9px;
+}
+
+.demo-caption span {
+  margin-right: 4px;
+  color: #b28b65;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-top: 1px solid #e8e8e1;
+  color: #92958c;
+  font-size: 8px;
+}
+
+.page-footer span span {
+  color: #b78560;
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    padding: 0 22px;
+  }
+
+  .topbar {
+    height: 68px;
+  }
+
+  .topbar-note {
+    display: none;
+  }
+
+  .showcase {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    max-width: 420px;
+    padding: 53px 0 48px;
+  }
+
+  .intro {
+    padding-right: 15px;
+  }
+
+  .intro h1 {
+    margin: 19px 0 14px;
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .intro > p {
+    font-size: 13px;
+  }
+
+  .intro-details {
+    margin-top: 20px;
+  }
+
+  .sparkle-one {
+    top: 38px;
+    right: 1%;
+  }
+
+  .sparkle-two {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .page-shell {
+    padding: 0 15px;
+  }
+
+  .showcase {
+    padding-top: 40px;
+  }
+
+  .intro-details {
+    gap: 11px;
+  }
+}
