@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
+import ReactMarkdown from 'react-markdown'
 
 export type ChatMessage = {
   id: string
@@ -108,10 +109,10 @@ export function ChatWidget({
   return (
     <section className="chat-widget" aria-label={title}>
       <header className="chat-header">
-        <div className="chat-brand-avatar" aria-hidden="true">
+        <div className="chat-assistant-avatar" aria-hidden="true">
           <svg viewBox="0 0 32 32" fill="none">
-            <path d="M8 21.5 16 7l8 14.5h-5.2L16 15.9l-2.8 5.6H8Z" fill="currentColor" />
-            <circle cx="23.5" cy="8.5" r="2.5" fill="#F4B95F" />
+            <path d="M6 7.5h20v13H13l-5 3v-3H6v-13Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+            <path d="M11 12h10M11 16h7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </div>
         <div className="chat-heading">
@@ -131,14 +132,26 @@ export function ChatWidget({
           {messages.map((message) => (
             <li className={`message-row message-row-${message.role}`} key={message.id}>
               {message.role === 'assistant' && (
-                <span className="message-avatar" aria-hidden="true">m</span>
+                <span className="message-avatar" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none">
+                    <path d="M3.5 4.5h13v9h-8l-3.5 2v-2h-1.5v-9Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+                  </svg>
+                </span>
               )}
-              <p className="message-bubble">{message.content}</p>
+              <div className={`message-bubble message-bubble-${message.role}`}>
+                {message.role === 'assistant'
+                  ? <ReactMarkdown>{message.content}</ReactMarkdown>
+                  : message.content}
+              </div>
             </li>
           ))}
           {isSending && (
             <li className="message-row message-row-assistant" aria-label="Assistant is typing">
-              <span className="message-avatar" aria-hidden="true">m</span>
+              <span className="message-avatar" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <path d="M3.5 4.5h13v9h-8l-3.5 2v-2h-1.5v-9Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+                </svg>
+              </span>
               <span className="typing-indicator"><i /><i /><i /></span>
             </li>
           )}
@@ -180,7 +193,7 @@ export function ChatWidget({
             </svg>
           </button>
         </form>
-        <p className="chat-powered">POWERED BY <span>MORROW</span></p>
+        <p className="chat-footer-note">CHAT ASSISTANT</p>
       </div>
     </section>
   )

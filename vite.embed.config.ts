@@ -7,7 +7,7 @@ export default defineConfig({
     lib: {
       entry: 'src/embed.tsx',
       formats: ['es'],
-      fileName: () => 'morrow-chat.js',
+      fileName: () => 'chat-widget.js',
     },
     outDir: 'dist/embed',
     emptyOutDir: false,

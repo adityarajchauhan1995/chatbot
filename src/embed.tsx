@@ -2,7 +2,7 @@ import { createRoot, type Root } from 'react-dom/client'
 import { ChatWidget, type ChatRequestHandler } from './ChatWidget'
 import widgetStyles from './ChatWidget.css?inline'
 
-export class MorrowChatElement extends HTMLElement {
+export class ChatWidgetElement extends HTMLElement {
   static observedAttributes = ['assistant-name', 'subtitle', 'welcome-message', 'suggestions']
 
   private root: Root | undefined
@@ -19,17 +19,17 @@ export class MorrowChatElement extends HTMLElement {
 
   connectedCallback() {
     const shadow = this.shadowRoot ?? this.attachShadow({ mode: 'open' })
-    if (!shadow.querySelector('.morrow-chat-styles')) {
+    if (!shadow.querySelector('.chat-widget-styles')) {
       const style = document.createElement('style')
-      style.className = 'morrow-chat-styles'
+      style.className = 'chat-widget-styles'
       style.textContent = widgetStyles
       shadow.append(style)
     }
 
-    let mount = shadow.querySelector<HTMLDivElement>('.morrow-chat-mount')
+    let mount = shadow.querySelector<HTMLDivElement>('.chat-widget-mount')
     if (!mount) {
       mount = document.createElement('div')
-      mount.className = 'morrow-chat-mount'
+      mount.className = 'chat-widget-mount'
       shadow.append(mount)
     }
 
@@ -64,12 +64,12 @@ export class MorrowChatElement extends HTMLElement {
   }
 }
 
-if (!customElements.get('morrow-chat')) {
-  customElements.define('morrow-chat', MorrowChatElement)
+if (!customElements.get('chat-widget')) {
+  customElements.define('chat-widget', ChatWidgetElement)
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'morrow-chat': MorrowChatElement
+    'chat-widget': ChatWidgetElement
   }
 }
